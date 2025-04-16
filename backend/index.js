@@ -3,6 +3,10 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
 import connectDB from './utils/db.js';
+import userRouter from './routes/userRoute.js';
+import companyRouter from './routes/comapnyRoutes.js';
+import jobRouter from "./routes/jobRoutes.js"
+
 const app = express();
 dotenv.config({});
 
@@ -21,6 +25,10 @@ app.use(cors(corsOptions)) //&It allows your Node.js server (Express) to accept 
 
 
 
+// api's
+app.use('/api/v1/user',userRouter); //&This is the route for user-related APIs. It uses the userRouter defined in userRoute.js.
+app.use('/api/v1/company',companyRouter); //&This is the route for user-related APIs. It uses the userRouter defined in userRoute.js.
+app.use('/api/v1/job',jobRouter); //&This is the route for user-related APIs. It uses the userRouter defined in userRoute.js.
 
 
 
